@@ -1,3 +1,7 @@
+## 1.5.0-rc5
+
+- Correct OTLP ports
+
 ## 1.5.0-rc4
 
 - Correct AddOn slug
