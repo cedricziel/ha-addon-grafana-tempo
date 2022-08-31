@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Grafana Tempo
-version: "1.5.0-rc1"
+version: "1.5.0-rc2"
 slug: mimir
 description: Grafana Tempo is an open source, easy-to-use, and high-scale distributed tracing backend.
 url: "https://github.com/cedricziel/ha-addon-grafana-tempo/blob/main/tempo"
@@ -8,9 +8,11 @@ watchdog: http://[HOST]:3200/ready
 apparmor: false
 ports:
   3200/tcp: 3200
+  9411/tcp: 9411
   9095/tcp: 9095
 ports_description:
   3200/tcp: Tempo
+  9411/tcp: Zipkin
   9095/tcp: gRPC
 arch:
   - aarch64
