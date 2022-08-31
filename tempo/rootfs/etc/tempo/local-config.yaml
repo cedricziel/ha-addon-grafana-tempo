@@ -1,4 +1,5 @@
 target: all
+metrics_generator_enabled: true
 
 server:
   http_listen_port: 3200
@@ -9,14 +10,18 @@ query_frontend:
     query_ingesters_until: 0
 
 distributor:
-  receivers:
-    jaeger:
+  jaeger:
       protocols:
+        thrift_http:
         grpc:
+        thrift_binary:
+        thrift_compact:
+    zipkin:
     otlp:
       protocols:
+        http:
         grpc:
-    zipkin:
+    opencensus:
   log_received_spans:
     enabled: true
 
@@ -34,6 +39,17 @@ ingester:
   complete_block_timeout: 1s
   flush_check_period: 1s
 
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+      cluster: home-assistant
+  storage:
+    path: /data/tempo/generator/wal
+    remote_write:
+      - url: "${PROMETHEUS_URL}"
+        send_exemplars: true
+
 storage:
   trace:
     backend: local
@@ -45,3 +61,4 @@ storage:
 
 overrides:
   max_search_bytes_per_trace: 50_000
+  metrics_generator_processors: [service-graphs, span-metrics]

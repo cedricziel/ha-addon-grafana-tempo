@@ -1,3 +1,8 @@
+## 1.5.0-rc3
+
+- Generate Metrics to the Mimir AddOn
+- Open Ports for OTLP, Jaeger, Zipkin
+
 ## 1.5.0-rc2
 
 - Expose Zipkin
