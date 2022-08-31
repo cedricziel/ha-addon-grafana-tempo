@@ -1,3 +1,7 @@
+## 1.5.0-rc4
+
+- Correct AddOn slug
+
 ## 1.5.0-rc3
 
 - Generate Metrics to the Mimir AddOn
