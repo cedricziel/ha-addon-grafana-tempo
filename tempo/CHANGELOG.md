@@ -1,3 +1,7 @@
+## 1.5.0-rc6
+
+- rectify receiver config
+
 ## 1.5.0-rc5
 
 - Correct OTLP ports

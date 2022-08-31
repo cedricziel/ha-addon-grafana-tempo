@@ -10,7 +10,8 @@ query_frontend:
     query_ingesters_until: 0
 
 distributor:
-  jaeger:
+  receivers:
+    jaeger:
       protocols:
         thrift_http:
         grpc:
