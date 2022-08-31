@@ -18,7 +18,7 @@ RUN \
     curl -sSLf -o /usr/bin/tempio \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
-COPY --from=container /${BUILD_ARCH}/loki /tempo
+COPY --from=container /${BUILD_ARCH}/tempo /tempo
 
 # Copy root filesystem
 COPY rootfs /
