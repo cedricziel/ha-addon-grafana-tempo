@@ -4,9 +4,31 @@ Grafana Tempo is an open source, easy-to-use, and high-scale distributed tracing
 
 ## How to use
 
-This add-on really does nothing. It is just an example.
+To send data to Tempo, you can use OTLP, Jaeger and Zipkin.
 
-When started it will print the configured message or "Hello world" in the log.
+The hostname is `8047bde0-tempo`.
 
-It will also print "All done!" in `/share/example_addon_output.txt` to show
-simple example of the usage of `map` in addon config.
+To send OpenTelemetry signals to Tempo via OTLP, you could use the following, very simple bit of configuration:
+
+**OpenTelemetry Collector**
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+exporters:
+  otlp/tempo:
+    endpoint: 8047bde0-tempo:4317
+    tls:
+      insecure: true
+service:
+  pipelines:
+    traces:
+      exporters: [otlp/tempo]
+```
+
+**Workloads** 
+```shell
+export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=8047bde0-tempo:4317
+export OTEL_EXPORTER_OTLP_TRACES_INSECURE=true
+```
