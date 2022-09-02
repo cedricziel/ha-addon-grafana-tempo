@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Grafana Tempo
-version: "1.5.0-rc8"
+version: "1.5.0-rc9"
 slug: tempo
 description: Grafana Tempo is an open source, easy-to-use, and high-scale distributed tracing backend.
 url: "https://github.com/cedricziel/ha-addon-grafana-tempo/blob/main/tempo"
