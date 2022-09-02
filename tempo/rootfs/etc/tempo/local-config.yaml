@@ -72,3 +72,7 @@ storage:
 overrides:
   max_search_bytes_per_trace: 50_000
   metrics_generator_processors: [service-graphs, span-metrics]
+
+search:
+  max_duration: 0
+  query_backend_after: 0
