@@ -1,3 +1,4 @@
+---
 target: all
 metrics_generator_enabled: true
 search_enabled: true
@@ -7,7 +8,9 @@ server:
   grpc_listen_port: 9095
 query_frontend:
   search:
-    query_backend_after: 0 # setting these both to 0 will force all range searches to hit the backend
+    # setting these both to 0 will force all
+    # range searches to hit the backend
+    query_backend_after: 0
     query_ingesters_until: 0
     max_duration: 0
 
@@ -55,19 +58,19 @@ metrics_generator:
 
 storage:
   trace:
-    backend: local                     # backend configuration to use
+    backend: local
     block:
-      bloom_filter_false_positive: .05 # bloom filter false positive rate.  lower values create larger filters but fewer false positives
-      index_downsample_bytes: 1000     # number of bytes per index record
-      encoding: zstd                   # block encoding/compression.  options: none, gzip, lz4-64k, lz4-256k, lz4-1M, lz4, snappy, zstd, s2
+      bloom_filter_false_positive: .05
+      index_downsample_bytes: 1000
+      encoding: zstd
       version: vParquet
     wal:
-      path: /data/tempo/wal             # where to store the the wal locally
-      encoding: snappy                 # wal encoding/compression.  options: none, gzip, lz4-64k, lz4-256k, lz4-1M, lz4, snappy, zstd, s2
+      path: /data/tempo/wal
+      encoding: snappy
     local:
       path: /data/tempo/blocks
     pool:
-      max_workers: 100                 # worker pool determines the number of parallel requests to the object store backend
+      max_workers: 100
       queue_depth: 10000
 
 overrides:

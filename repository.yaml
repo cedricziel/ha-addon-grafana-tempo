@@ -1,4 +1,0 @@
-# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Grafana Tempo Home Assistant add-on repository
-url: "https://github.com/cedricziel/ha-addon-grafana-tempo"
-maintainer: Cedric Ziel <mail@cedric-ziel.com>

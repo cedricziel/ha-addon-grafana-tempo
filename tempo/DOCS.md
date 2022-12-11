@@ -11,6 +11,7 @@ The hostname is `8047bde0-tempo`.
 To send OpenTelemetry signals to Tempo via OTLP, you could use the following, very simple bit of configuration:
 
 **OpenTelemetry Collector**
+
 ```yaml
 receivers:
   otlp:
@@ -27,7 +28,8 @@ service:
       exporters: [otlp/tempo]
 ```
 
-**Workloads** 
+**Workloads**
+
 ```shell
 export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=8047bde0-tempo:4317
 export OTEL_EXPORTER_OTLP_TRACES_INSECURE=true
