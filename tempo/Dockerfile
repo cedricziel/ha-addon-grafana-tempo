@@ -7,6 +7,8 @@ FROM --platform=linux/amd64 grafana/tempo:2.0.1 as tempo-amd64
 # hadolint ignore=DL3029
 FROM --platform=linux/arm64 grafana/tempo:2.0.1 as tempo-arm64
 
+FROM ghcr.io/tarampampam/curl:8.6.0 as curl
+
 FROM scratch as container
 
 COPY --from=tempo-amd64 /tempo /amd64/
@@ -20,7 +22,7 @@ ARG BUILD_ARCH=amd64
 
 COPY --from=container /${BUILD_ARCH}/tempo /tempo
 
-COPY --from=ghcr.io/tarampampam/curl:8.6.0 /bin/curl /bin/curl
+COPY --from=curl /bin/curl /bin/curl
 
 # Copy root filesystem
 COPY rootfs /
