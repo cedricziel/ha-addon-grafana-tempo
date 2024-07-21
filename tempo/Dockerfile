@@ -20,5 +20,10 @@ ARG BUILD_ARCH=amd64
 
 COPY --from=container /${BUILD_ARCH}/tempo /tempo
 
+COPY --from=ghcr.io/tarampampam/curl:8.6.0 /bin/curl /bin/curl
+
 # Copy root filesystem
 COPY rootfs /
+
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost/status || exit 1
