@@ -26,4 +26,4 @@ COPY --from=ghcr.io/tarampampam/curl:8.6.0 /bin/curl /bin/curl
 COPY rootfs /
 
 HEALTHCHECK --interval=5m --timeout=3s \
-  CMD curl -f http://localhost/status || exit 1
+  CMD curl -f http://localhost:3200/status || exit 1
