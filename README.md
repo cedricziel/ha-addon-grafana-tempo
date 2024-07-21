@@ -1,3 +1,7 @@
+# This repository is archived
+
+The contents has moved to the [main repository](https://github.com/cedricziel/ha-addons)
+
 # Grafana Tempo Home Assistant add-on repository
 
 Grafana Tempo is an open source, easy-to-use, and high-scale distributed tracing backend.
