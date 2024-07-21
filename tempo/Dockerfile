@@ -28,4 +28,4 @@ COPY --from=curl /bin/curl /bin/curl
 COPY rootfs /
 
 HEALTHCHECK --interval=5m --timeout=3s \
-  CMD curl -f http://localhost:3200/status || exit 1
+  CMD curl -f http://localhost:3200/ready || exit 1
